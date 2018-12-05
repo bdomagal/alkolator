@@ -2,6 +2,7 @@ package pudic.alkolator;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,10 @@ public class Controller {
 
     private final double ELIMINATION_RATE = 0.15;
 
+    @GetMapping("/")
+    public String helloWorld(){
+        return "ALKOLATOR DZIAŁA";
+    }
     @PostMapping("/calculate")
     public ResponseEntity<ArrayList<Calculation>> estimateBAC(@RequestParam String sex,
                                                               @RequestParam(required = false) int age,
